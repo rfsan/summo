@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "summo"
+version = "0.0.1"
+description = ""
+requires-python = ""
+readme = "README.md"
+license = { text = "MIT License" }
+authors = [{ name = "Rafael Sanabria", email = "rafael.d.sanabria@gmail.com" }]
+dependencies = []
+classifiers = []
