@@ -4,11 +4,28 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "summo"
-version = "0.0.1"
+version = "0.0.2"
 description = ""
 requires-python = ""
 readme = "README.md"
 license = { text = "MIT License" }
 authors = [{ name = "Rafael Sanabria", email = "rafael.d.sanabria@gmail.com" }]
-dependencies = []
+dependencies = ["pandas >= 2.0.0"]
 classifiers = []
+
+[project.optional-dependencies]
+test = ["pytest >= 7.3"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.tox]
+legacy_tox_ini = """
+  [tox]
+  min_version = 4.0
+  env_list = py39, py310, py311
+
+  [testenv]
+  deps = .[test]
+  commands = pytest
+"""
