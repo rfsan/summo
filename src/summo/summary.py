@@ -13,10 +13,5 @@ def summary(df: pd.DataFrame):
             [df.isna().sum()],
             axis=1,
             keys=["na_count"],
-        ).to_dict("index")
-        # "columns": pd.concat(
-        #     [df.dtypes.apply(str), df.isna().sum()],
-        #     axis=1,
-        #     keys=["dtype", "na_count"],
-        # ).to_dict("index"),
+        ).to_dict("index"),
     }

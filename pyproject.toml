@@ -19,13 +19,22 @@ test = ["pytest >= 7.3"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
+[tool.black]
+line-length = 100
+
 [tool.tox]
 legacy_tox_ini = """
   [tox]
   min_version = 4.0
-  env_list = py39, py310, py311
+  env_list = format, py39, py310, py311
 
   [testenv]
   deps = .[test]
   commands = pytest
+
+  [testenv:format]
+  skip_install = true
+  deps =
+    black>=23.0
+  commands = black {posargs: src tests}
 """
