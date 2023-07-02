@@ -1,7 +1,8 @@
 import pandas as pd
+from typing import Any
 
 
-def summary(df: pd.DataFrame):
+def summary(df: pd.DataFrame) -> dict[str, Any]:
     return {
         "table": {
             "row_count": df.shape[0],

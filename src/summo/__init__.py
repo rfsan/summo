@@ -1,1 +1,1 @@
-from summo.summary import summary
+from .summary import summary

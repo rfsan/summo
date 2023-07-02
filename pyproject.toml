@@ -6,15 +6,17 @@ build-backend = "setuptools.build_meta"
 name = "summo"
 version = "0.0.2"
 description = ""
-requires-python = ""
+requires-python = ">=3.9"
 readme = "README.md"
 license = { text = "MIT License" }
 authors = [{ name = "Rafael Sanabria", email = "rafael.d.sanabria@gmail.com" }]
 dependencies = ["pandas >= 2.0.0"]
 classifiers = []
 
+# consider including tox, build, twine
 [project.optional-dependencies]
-test = ["pytest >= 7.3"]
+dev = ["pytest >= 7.3", "black >= 23.3.0", "ruff>=0.0.275"]
+typing = ["pandas-stubs > 2.0.0"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -22,11 +24,22 @@ testpaths = ["tests"]
 [tool.black]
 line-length = 100
 
+[tool.ruff]
+ignore = [
+  "E501", # line too long, handled by black
+]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.mypy]
+strict = true
+
 [tool.tox]
 legacy_tox_ini = """
   [tox]
   min_version = 4.0
-  env_list = format, py39, py310, py311
+  env_list = format, linter, type, py39, py310, py311
 
   [testenv]
   deps = .[test]
@@ -35,6 +48,18 @@ legacy_tox_ini = """
   [testenv:format]
   skip_install = true
   deps =
-    black>=23.0
+    black >= 23.0
   commands = black {posargs: src tests}
+
+  [testenv:linter]
+  skip_install = true
+  deps = 
+    ruff >= 0.0.275
+  commands = ruff check .
+
+  [testenv:type]
+  deps =
+    mypy>=1.3
+    .[typing]
+  commands = mypy {posargs:src}
 """
