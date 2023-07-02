@@ -1,0 +1,14 @@
+name: My first workflow
+
+on:
+  - push
+
+jobs:
+  echo-string:
+    name: Echo a string
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Echo the string
+        run: echo "Hello"

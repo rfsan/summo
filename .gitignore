@@ -3,7 +3,6 @@ dist
 *.egg-info
 __pycache__
 .tox
-.pytest_cache
 build
 .pypirc
 .vscode
