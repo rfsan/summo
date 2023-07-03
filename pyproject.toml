@@ -42,7 +42,8 @@ legacy_tox_ini = """
   env_list = format, linter, type, py39, py310, py311
 
   [testenv]
-  deps = .[test]
+  deps = 
+    pytest >= 7.3
   commands = pytest
 
   [testenv:format]
@@ -60,6 +61,6 @@ legacy_tox_ini = """
   [testenv:type]
   deps =
     mypy>=1.3
-    pandas-stubs > 2.0.0
+    .[typing]
   commands = mypy {posargs:src}
 """
