@@ -49,3 +49,7 @@ summary = summo.summary(df)
     },
 }
 ```
+
+## Installation
+
+`pip install summo`
