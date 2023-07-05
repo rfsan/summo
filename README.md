@@ -52,4 +52,4 @@ summary = summo.summary(df)
 
 ## Installation
 
-`pip install summo`
+- `pip install summo`
