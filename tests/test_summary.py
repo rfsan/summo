@@ -13,14 +13,15 @@ dataframes = [
         ),
         {
             "table": {
-                "row_count": 4,
-                "column_count": 2,
+                "rows": 4,
+                "columns": 2,
                 "rows_duplicated": 1,
-                "rows_all_na": 0,
+                "rows_all_na_count": 0,
+                "rows_all_na_pct": 0,
             },
             "columns": {
-                "a": {"na_count": 0},
-                "b": {"na_count": 0},
+                "a": {"na_count": 0, "na_pct": 0, "unique": False, "dtype": "int64"},
+                "b": {"na_count": 0, "na_pct": 0, "unique": False, "dtype": "int64"},
             },
         },
     ),
@@ -34,15 +35,31 @@ dataframes = [
         ),
         {
             "table": {
-                "row_count": 5,
-                "column_count": 3,
+                "rows": 5,
+                "columns": 3,
                 "rows_duplicated": 0,
-                "rows_all_na": 1,
+                "rows_all_na_count": 1,
+                "rows_all_na_pct": 1 / 5,
             },
             "columns": {
-                "a": {"na_count": 2},
-                "b": {"na_count": 1},
-                "c": {"na_count": 2},
+                "a": {
+                    "na_count": 2,
+                    "na_pct": 2 / 5,
+                    "unique": False,
+                    "dtype": "float64",
+                },
+                "b": {
+                    "na_count": 1,
+                    "na_pct": 1 / 5,
+                    "unique": False,
+                    "dtype": "float64",
+                },
+                "c": {
+                    "na_count": 2,
+                    "na_pct": 2 / 5,
+                    "unique": False,
+                    "dtype": "object",
+                },
             },
         },
     ),
