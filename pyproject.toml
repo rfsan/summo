@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "summo"
-version = "0.0.4"
+version = "0.0.5"
 description = ""
 requires-python = ">=3.9"
 readme = "README.md"
@@ -16,6 +16,7 @@ classifiers = []
 # consider including tox, build, twine
 [project.optional-dependencies]
 dev = ["pytest >= 7.3", "black >= 23.3.0", "ruff>=0.0.275"]
+tests = ["pytest >= 7.3", "deepdiff >= 6.3.1"]
 typing = ["pandas-stubs > 2.0.0"]
 
 [tool.pytest.ini_options]
@@ -43,7 +44,7 @@ legacy_tox_ini = """
 
   [testenv]
   deps = 
-    pytest >= 7.3
+    .[tests]
   commands = pytest
 
   [testenv:format]

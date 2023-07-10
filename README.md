@@ -33,12 +33,16 @@ summary = summo.summary(df)
             "na_pct": 0.4,
             "unique": False,
             "dtype": "float64",
+            "median": 2.0,
+            "mean": 1.666666, 
         },
         "b": {
             "na_count": 1,
             "na_pct": 0.2,
             "unique": False,
             "dtype": "float64",
+            "median": 5.0,
+            "mean": 5.0, 
         },
         "c": {
             "na_count": 2,
